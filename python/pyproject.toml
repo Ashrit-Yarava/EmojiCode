@@ -1,12 +1,22 @@
 [tool.poetry]
 name = "emojicode"
-version = "0.1.0"
+version = "1.0.0"
 description = "Encrypt and Decrypt messsage with emojis!"
 authors = ["Ashrit Yarava <ashdragon95@gmail.com>"]
-license = "MIT License"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Ashrit-Yarava/EmojiCode.git"
+repository = "https://github.com/Ashrit-Yarava/EmojiCode.git"
+keywords = [
+	"emojicode", "emoji", "encoding", "baseEmoji", "emojis"
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.5"
+
+[tool.poetry.scripts]
+emojicode = 'emojicode.main:main'
 
 [tool.poetry.dev-dependencies]
 
