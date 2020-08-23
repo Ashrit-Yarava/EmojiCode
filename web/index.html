@@ -2,8 +2,18 @@
 <html>
     <head>
         <title>EmojiCode</title>
+
     </head>
     <body>
-        <p>Still Working on it! Come back later...</p>
+        <h1>EmojiCode</h1>
+        <form>
+            <script src="./js/encrypt.js" type="text/javascript"></script>
+            <script src="./js/decrypt.js" type="text/javascript"></script>
+            <label for="messageBox">Input Text:</label><br>
+            <input type="text" id="inputBox"><br>
+            <input type="button" value="Encrypt" onclick="encrypt(document.getElementById('inputBox').value)">
+            <input type="button" value="Decrypt" onclick="decrypt(document.getElementById('inputBox').value)">
+        </form>
+        
     </body>
 </html>
