@@ -56,5 +56,3 @@ function encrypt(message) {
     }
     return emojis
 }
-
-console.log(encrypt("Hello!"))
