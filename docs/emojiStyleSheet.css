@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 body {
-    background-image: url(/images/paper.jpg);
+    background-image: url(images/paper.jpg);
     background-position: left top;
     background-repeat: norepeat;
     padding: 15px;
