@@ -17,7 +17,7 @@ function getBin(number) {
     return bin
 }
 
-function split(binaryStream) {
+function decryptSplit(binaryStream) {
     let bins = []
     let current = ""
     for(let bin of binaryStream) {
@@ -38,7 +38,7 @@ function decryptText(message) {
         let number = e2i.get(emoji)
         binaryStream += getBin(number)
     }
-    let bytes = split(binaryStream)
+    let bytes = decryptSplit(binaryStream)
     let text = ""
     for(let byte of bytes) {
         number = parseInt(byte, 2)
