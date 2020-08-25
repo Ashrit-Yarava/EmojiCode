@@ -10,7 +10,7 @@ function getEncryptTable() {
     return i2e
 }
 
-function split(binaryStream) {
+function encryptSplit(binaryStream) {
     let bins = []
     let current = ""
 
@@ -46,10 +46,10 @@ function encryptText(message) {
     let binaryStream = ""
     for(let index in message) {
         let number = message.charCodeAt(index)
-        console.log(number)
         binaryStream += convertToByte(number)
     }
-    bins = split(binaryStream)
+    bins = encryptSplit(binaryStream)
+    console.log(bins)
     let emojis = ""
     let i2e = getEncryptTable()
     for(var index in bins) {
