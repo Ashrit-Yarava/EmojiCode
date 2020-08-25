@@ -8,8 +8,25 @@
 
 <body>
     <h1>Int to Emoji</h1>
-    <p>Still Working on it...</p>
+    <p>*insert input statement*</p>
+    <input id="numb">
+    <button type="button" onclick="convert()">Enter</button>
+    <p id="demo"></p>
     <a href="main.html">Go Home</a>
+    <script>
+        function convert() {
+            var input, output;
+            input = document.getElementById("numb").value;
+
+            if (isNaN(input)) {
+                output = "Invalid";
+            } else {
+                output = parseInt(input) + 1;
+            }
+
+            document.getElementById("demo").innerHTML = output;
+        }
+    </script>
 </body>
 
 </html>
