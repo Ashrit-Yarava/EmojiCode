@@ -31,7 +31,7 @@ function split(binaryStream) {
     return bins
 }
 
-function decrypt(message) {
+function decryptText(message) {
     let e2i = getDecryptTable()
     let binaryStream = ""
     for(let emoji of message) {

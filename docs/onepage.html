@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <title>EmojiCode</title>
+    <body>
+        <h1>EmojiCode</h1><hr>
+        <form id="mainForm">
+            <script src="./js/encrypt.js" type="text/javascript"></script>
+            <script src="./js/decrypt.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+                function updateEncrypt() {
+                    output = encryptText(document.getElementById("message").value)
+                    document.getElementById('outputBox').innerHTML = output
+                }
+                function updateDecrypt() {
+                    output = decryptText(document.getElementById("message").value)
+                    document.getElementById('outputBox').innerHTML = output
+                }
+            </script>
+
+            <input id="message" type="text"><br>
+            <input type="button" value="Encrypt" onclick="updateEncrypt()">
+        </form>
+        <p id="outputBox">Output Text Comes Here.</p>
+    </body>
+</html>

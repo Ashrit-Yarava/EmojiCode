@@ -1,3 +1,4 @@
+// module "encrypt.mjs"
 function getEncryptTable() {
     let emojis = "😀😃😄😁😆😅🤣😂🙂🙃😉😊😇🥰😍🤩😘😗😚😙😋😛😜🤪😝🤑🤗🤭🤫🤔🤐🤨😐😑😶😏😒🙄😬🤥😌😔😪🤤😴😷🤒🤕🤢🤮🤧🥵🥶🥴😵🤯🤠🥳😎🤓🧐😕😟🙁😮😯😲😳🥺😦😧😨😰😥😢😭😱😖😣😞😓😩😫🥱😤😡😠🤬😈👿💀💩🤡👹👺👻👽👾🤖😺😸😹😻😼😽🙀😿😾💋👋🤚🖐✋🖖👌🤏🤞🤟🤘🤙👈👉👆🖕👇👍👎✊"
     let i2e = new Map()
@@ -41,10 +42,11 @@ function convertToByte(number) {
     return bin
 }
 
-function encrypt(message) {
+function encryptText(message) {
     let binaryStream = ""
     for(let index in message) {
         let number = message.charCodeAt(index)
+        console.log(number)
         binaryStream += convertToByte(number)
     }
     bins = split(binaryStream)
