@@ -21,6 +21,85 @@ class EmojiCodeApp extends StatelessWidget {
 }
 
 
+class TextBox extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return Container(
+            width: 500.0,
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(5.0, 300.0, 5.0, 5.0),
+                child: TextField(
+                    key: Key("textBox"),
+                    obscureText: false,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter text here.',
+                    ),
+                ),
+            )
+        );
+    }
+}
+
+
+class OutputBox extends StatelessWidget {
+
+    @override
+    Widget build(BuildContext context) {
+        return TextUpdater();
+    }
+}
+
+
+class TextUpdater extends StatefulWidget {
+
+    UpdateTextState createState() => UpdateTextState();
+
+}
+
+class UpdateTextState extends State {
+
+    String textHolder = "Click Encrypt/Decrypt to get encrypted/decrypted text.";
+
+    changeText(String message) {
+        setState(() {
+            textHolder = message;
+        });
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+                TextBox(),
+                ButtonBar(
+                    mainAxisSize: MainAxisSize.max,
+                    alignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                        RaisedButton(
+                            child: const Text("Encrypt"),
+                            onPressed: () {
+                                changeText("Hello World!");
+                            },
+                        ),
+                        RaisedButton(
+                            child: const Text("Decrypt"),
+                            onPressed: () {
+                                changeText("Hello World...");
+                            },
+                        ),
+                    ],
+                ),
+                Text("$textHolder"),
+            ],
+        );
+    }
+
+}
+
+
 class MainScreen extends StatelessWidget {
 
     @override
@@ -38,6 +117,7 @@ class MainScreen extends StatelessWidget {
                     )
                 ],
             ),
+            body: TextUpdater(),
         );
     }
 
@@ -48,7 +128,5 @@ class MainScreen extends StatelessWidget {
         } else {
             throw 'Could not launch $url';
         }
-}
-
-
+    }
 }
