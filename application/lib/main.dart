@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:async' show Future;
+import 'package:fluttertoast/fluttertoast.dart';
+
+// Local Imports
+import 'package:EmojiCode/encryptdecrypt.dart';
+
 
 
 void main() => runApp(EmojiCodeApp());
-
 
 
 class EmojiCodeApp extends StatelessWidget {
@@ -61,6 +66,7 @@ class TextUpdater extends StatefulWidget {
 class UpdateTextState extends State {
 
     String textHolder = "Click Encrypt/Decrypt to get encrypted/decrypted text.";
+    String inputtedText = "";
 
     changeText(String message) {
         setState(() {
@@ -73,7 +79,22 @@ class UpdateTextState extends State {
         return Column(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-                TextBox(),
+                Container(
+                    width: 500.0,
+                    child: Padding(
+                        padding: EdgeInsets.fromLTRB(5.0, 300.0, 5.0, 5.0),
+                        child: TextField(
+                            onChanged: (newText) {
+                                inputtedText = newText;
+                            },
+                            obscureText: false,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Enter text here.',
+                            ),
+                        ),
+                    )
+                ),
                 ButtonBar(
                     mainAxisSize: MainAxisSize.max,
                     alignment: MainAxisAlignment.center,
@@ -81,18 +102,37 @@ class UpdateTextState extends State {
                         RaisedButton(
                             child: const Text("Encrypt"),
                             onPressed: () {
-                                changeText("Hello World!");
+                                changeText(encryptText(inputtedText));
                             },
                         ),
                         RaisedButton(
                             child: const Text("Decrypt"),
                             onPressed: () {
-                                changeText("Hello World...");
+                                changeText(decryptText(inputtedText));
                             },
                         ),
+                        RaisedButton(
+                            child: const Text("Copy to Clipboard"),
+                            onPressed: () {
+                                Clipboard.setData(ClipboardData(text: textHolder)).then( (result) {
+                                    Fluttertoast.showToast(msg: "copied"); 
+                                });
+                            }
+                        )
                     ],
                 ),
-                Text("$textHolder"),
+                Padding(
+                    padding: EdgeInsets.fromLTRB(300.0, 10.0, 300.0, 10.0),
+                    child: SelectableText(
+                        "$textHolder",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 22.0,
+                            wordSpacing:2.0, 
+                            fontWeight: FontWeight.bold,
+                        ),
+                    ),
+                ),
             ],
         );
     }
@@ -117,7 +157,9 @@ class MainScreen extends StatelessWidget {
                     )
                 ],
             ),
-            body: TextUpdater(),
+            body: SingleChildScrollView(
+                child: TextUpdater(),
+            ),
         );
     }
 
