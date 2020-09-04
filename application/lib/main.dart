@@ -53,7 +53,7 @@ class TextUpdater extends StatefulWidget {
 }
 
 class UpdateTextState extends State {
-  String textHolder = "Click Encrypt/Decrypt to get encrypted/decrypted text.";
+  String textHolder = "";
   String inputtedText = "";
 
   changeText(String message) {
@@ -76,7 +76,7 @@ class UpdateTextState extends State {
                   inputtedText = newText;
                 },
                 style: TextStyle(
-                  fontSize: 22.0,
+                  fontSize: 20.0,
                   wordSpacing: 2.0,
                 ),
                 obscureText: false,
@@ -123,9 +123,8 @@ class UpdateTextState extends State {
             "$textHolder",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 22.0,
+              fontSize: 20.0,
               wordSpacing: 2.0,
-              fontWeight: FontWeight.bold,
             ),
           ),
         ),
