@@ -118,7 +118,7 @@ class UpdateTextState extends State {
           ],
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(300.0, 10.0, 300.0, 10.0),
+          padding: EdgeInsets.fromLTRB(100.0, 10.0, 100.0, 10.0),
           child: SelectableText(
             "$textHolder",
             textAlign: TextAlign.center,
